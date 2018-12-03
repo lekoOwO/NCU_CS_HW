@@ -152,12 +152,10 @@ Matrix createMatrix(string word = "", int height = -1) {
 }
 
 int main(void) {
-    auto matrix = createMatrix(
+    Matrix matrix = createMatrix(
         "Please enter an matrix.\nSeperate each numbers with a space and each "
         "line with ENTER.");
-    cout << endl
-         << "Matrix of cofactors: " << endl
-         << endl;
+    cout << endl << "Matrix of cofactors: " << endl << endl;
     matrix.cof().print();
     cout << endl << "Determinant: " << matrix.det() << endl;
     return 0;
