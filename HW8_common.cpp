@@ -69,36 +69,31 @@ int main (){
     string input;
     getline(cin,input);
 
-    for (int i=0;i<=input.size();i++){
-        char self = input[i];
+    for (auto e = input.begin(); e != input.end(); e++){
         string operation;
         string target;
 
-        if (self == '<') { // 遇到 '<'，開始儲存指令
-            i++;
-            self = input[i];
-            while (self != ' ' && self != '>') { // 遇到空白或>之前都當作指令儲存在 operation 裡面
-                operation += self;
-                i++;
-                self = input[i];
-            } // 此時指令儲存完成，self == ' ' 或 self == '>' 有一個會成立
+        if (*e == '<') { // 遇到 '<'，開始儲存指令
+            e++;
+            while (*e != ' ' && *e != '>') { // 遇到空白或>之前都當作指令儲存在 operation 裡面
+                operation += *e;
+                e++;
+            } // 此時指令儲存完成，*e == ' ' 或 *e == '>' 有一個會成立
 
-            if (self == ' ') {
-                i++; // 跳過空白
-                self = input[i];
+            if (*e == ' ') {
+                e++; // 跳過空白
 
-                while (self != '>') { // 在遇到>之前都當作要儲存的東西
-                    target += self;
-                    i++;
-                    self = input[i];
+                while (*e != '>') { // 在遇到>之前都當作要儲存的東西
+                    target += *e;
+                    e++;
                 }
-            } // 此時 target 是要儲存的目標, self == '>'。
+            } // 此時 target 是要儲存的目標, *e == '>'。
 
             if (operation == "push") {
                 first.push(target);         // 做 push
-            } else if (operation == "pop"){ // 此時 self == '>', operation == "pop"
+            } else if (operation == "pop"){ // 此時 *e == '>', operation == "pop"
                 first.pop();                // 做 pop
-            } else if (operation == "show"){ // 此時 self == '>', operation == "show"
+            } else if (operation == "show"){ // 此時 *e == '>', operation == "show"
                 first.show();                // 做 show
             }
         }
