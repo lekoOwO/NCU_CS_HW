@@ -75,56 +75,51 @@ constexpr unsigned long long operator "" _hash(char const* p, size_t)
 
 class Calculator {
     public:
-        Calculator(float initValue = 0){
-            init(initValue);
-        }
-        void init(float initValue) {
-            this->data = initValue;
-        }
-        void add(float x){
-            this->data += x;
-        }
-        void multiply(float x){
-            this->data *= x;
-        }
-        void subtract(float x){
-            this->data -= x;
-        }
-        void divide(float x){
-            this->data /= x;
-        }
-        void display(){
-            cout << data << endl;
-        }
+      void operator=(float initValue) {this->data = initValue;}
+      void operator+=(float x) {this->data += x;}
+      void operator*=(float x) {this->data *= x;}
+      void operator-=(float x) {this->data -= x;}
+      void operator/=(float x) {this->data /= x;}
+      friend ostream& operator<<(ostream& os, const Calculator& x){  
+            os << x.data;  
+            return os;  
+      }  
+  
     private:
       float data;
-}
+};
 
 int main(){
     string input;
     getline(cin, input);
     auto parsed = splitstring(input).split('>');
     Calculator x;
-    regex push = regex("(?:<)(\\S+)(?:\\s*)(.*)");
+    regex push = regex(R"((?:<)(\S+)(?:\s*)(.*))");
 
     for (auto e: parsed) {
         smatch sm;
         regex_match (e, sm, push);
         switch (hash_(&sm[1].str()[0u])){
             case "init"_hash:
-                x.init(stof(sm[2].str()));
+                x = (stof(sm[2].str()));
                 break;
             case "add"_hash:
-                x.add(stof(sm[2].str()));
+                x += (stof(sm[2].str()));
                 break;
             case "multiply"_hash:
-                x.multiply(stof(sm[2].str()));
+                x *= (stof(sm[2].str()));
                 break;
             case "subtract"_hash:
-                x.subtract(stof(sm[2].str()));
+                x -= (stof(sm[2].str()));
+                break;
+            case "divide"_hash:
+                x /= (stof(sm[2].str()));
                 break;
             case "display"_hash:
-                x.display();
+                cout << x << endl;
+                break;
+            default:
+                cout << "Error: " << sm[0].str() << '>' << endl;
                 break;
         }
     }
