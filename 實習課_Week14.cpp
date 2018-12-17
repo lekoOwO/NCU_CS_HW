@@ -2,24 +2,24 @@
 
 class Shape {
     public:
-      virtual void area();
+      virtual float area(){};
 };
 
 class Rectangle: public Shape {
     public:
-        Rectangle(float length, float height, float c){
+        Rectangle(float length, float width, float height){
             this->length = length;
             this->height = height;
-            this->c = c;
+            this->width = width;
         };
-        void area() override{
-            std::cout << length * height << std::endl;
+        float area() override{
+            return length * height * width;
         };
 
       private:
         float length;
         float height;
-        float c;
+        float width;
 };
 
 class Triangle: public Shape {
@@ -28,8 +28,8 @@ class Triangle: public Shape {
             this->length = length;
             this->height = height;
         };
-        void area() override{
-            std::cout << length * height / 2 << std::endl;
+        float area() override{
+            return length * height / 2;
         };
 
       private:
@@ -40,7 +40,7 @@ class Triangle: public Shape {
 int main(){
     auto a = Rectangle(0.5, 5, 6);
     auto b = Triangle(5, 6);
-    a.area();
-    b.area();
+    std::cout << "Rectangle Area: " << a.area() << std::endl;
+    std::cout << "Triangle Area: " << b.area() << std::endl;
     return 0;
 }
