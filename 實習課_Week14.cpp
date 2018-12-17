@@ -1,25 +1,31 @@
 #include <iostream>
 
+const int TRA_UP = 5;
+const int TRA_DOWN = 2;
+const int TRA_HEIGHT = 4;
+const int TRI_LENGTH = 5;
+const int TRI_HEIGHT = 7;
+
 class Shape {
     public:
       virtual float area(){};
 };
 
-class Rectangle: public Shape {
+class Trapezoid: public Shape {
     public:
-        Rectangle(float length, float width, float height){
-            this->length = length;
+        Trapezoid(float up, float down, float height){
+            this->up = up;
+            this->down = down;
             this->height = height;
-            this->width = width;
         };
         float area() override{
-            return length * height * width;
+            return (up + down) * height / 2;
         };
 
       private:
-        float length;
+        float up;
+        float down;
         float height;
-        float width;
 };
 
 class Triangle: public Shape {
@@ -38,9 +44,9 @@ class Triangle: public Shape {
 };
 
 int main(){
-    auto a = Rectangle(0.5, 5, 6);
-    auto b = Triangle(5, 6);
-    std::cout << "Rectangle Area: " << a.area() << std::endl;
-    std::cout << "Triangle Area: " << b.area() << std::endl;
+    auto a = Trapezoid(TRA_UP, TRA_DOWN, TRA_HEIGHT);
+    auto b = Triangle(TRI_LENGTH, TRI_HEIGHT);
+    std::cout << "Rectangle Area: " << '(' << TRA_UP << " + " << TRA_DOWN  << ") * " << TRA_HEIGHT << " / 2 = "<< a.area() << std::endl;
+    std::cout << "Triangle Area: " << TRI_LENGTH << " * " << TRI_HEIGHT << " / 2 = " << b.area() << std::endl;
     return 0;
 }
