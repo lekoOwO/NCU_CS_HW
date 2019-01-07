@@ -3,8 +3,8 @@
 #include <string>
 
 int main(){
-    char key;
-    std::cin.get(key);
+    int key;
+    std::cin >> key;
     std::ifstream secretf("secret.txt");
     std::string secret((std::istreambuf_iterator<char>(secretf)), std::istreambuf_iterator<char>());
     for (auto &e: secret) e -= key;
