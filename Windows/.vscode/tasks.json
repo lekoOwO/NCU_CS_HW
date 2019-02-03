@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile",
+            "command": "clang++",
+            "args": [
+                "./${relativeFile}",
+                "-o",
+                "./${relativeFile}/../${fileBasenameNoExtension}.exe",
+                "-g",
+                "-Wall",
+                "-static",
+                "-pthread",
+                "-fcolor-diagnostics",
+                "--target=x86_64-w64-mingw64",
+                "-std=c++17",
+                "-Wl,--allow-multiple-definition"
+            ],
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "run",
+            "command": "./${relativeFile}/../${fileBasenameNoExtension}.exe",
+            "type": "process",
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true
+            }
+        }
+    ]
+}

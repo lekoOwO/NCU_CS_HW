@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch", // 配置名稱，將會在啟動配置的下拉菜單中顯示
+            "type": "cppdbg", // 配置類型，這裡只能為cppdbg
+            "request": "launch", // 請求配置類型，可以為launch（啟動）或attach（附加）
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe", // 將要進行調校的程序的路徑
+            "args": [], // 程序調校時傳遞給程序的命令行參數，一般設為空即可
+            "stopAtEntry": true, // 設為true時程序將暫停在程序入口處，我一般設置為true
+            "cwd": "${workspaceFolder}", // 調校程序時的工作目錄
+            "environment": [], // （環境變數？）
+            "externalConsole": true, // 調校時是否顯示控制台窗口，一般設置為true顯示控制台
+            "internalConsoleOptions": "neverOpen", // 如果不設為neverOpen，調校時會跳到“調校控制台”選項卡，你應該不需要對gdb手動輸命令吧？
+            "MIMode": "gdb", // 指定連接的調校器，可以為gdb或lldb。但目前lldb在windows下沒有預編譯好的版本。
+            "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe", // 調校器路徑，Windows下後綴不能省略，Linux下則去掉
+            "setupCommands": [ // 用處未知，模板如此
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": false
+                }
+            ],
+            "preLaunchTask": "Compile" // 調校會話開始前執行的任務，一般為編譯程序。與tasks.json的label相對應
+        }
+    ]
+}

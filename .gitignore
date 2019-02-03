@@ -1,7 +1,5 @@
 .vscode.zip
 *.exe
-.vscode/
 練習/
 *.dSYM/
-.vscode/
 *.out

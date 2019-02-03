@@ -1,0 +1,89 @@
+{
+    "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+    "terminal.integrated.shellArgs.windows": ["-i"],
+    "terminal.integrated.env.windows": { "PATH": "/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/c/Windows/System32:/c/Windows:/c/Windows/System32/Wbem:/c/Windows/System32/WindowsPowershell/v1.0/"},
+    "files.defaultLanguage": "cpp", // ctrl+N新建文件後預設的語言
+    "editor.formatOnType": true, // 輸入時就進行格式化，默認觸發字元較少，分號可以觸發
+    "editor.snippetSuggestions": "top", // snippets代碼優先顯示補全
+
+    "code-runner.runInTerminal": true, // 設置成false會在“輸出”中輸出，無法輸入
+    "code-runner.executorMap": {
+        "c": "cd $dir && C:\\msys64\\mingw64\\bin\\clang.exe $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c11 && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && C:\\msys64\\mingw64\\bin\\clang++.exe $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c++17 && $dir$fileNameWithoutExt"
+    }, // 設置code runner的命令行
+    "code-runner.saveFileBeforeRun": true, // run code前保存
+    "code-runner.preserveFocus": true, // 若為false，run code後游標會聚焦到終端上。如果需要頻繁輸入數據可設為false
+    "code-runner.clearPreviousOutput": false, // 每次run code前清空屬於code runner的終端消息
+
+    "C_Cpp.clang_format_sortIncludes": true, // 格式化時調整include的順序（按字母排序）
+    "C_Cpp.intelliSenseEngine": "Default", // 可以為Default或Tag Parser，後者較老，功能較簡單。具體差別參考cpptools擴展文件
+    "C_Cpp.errorSquiggles": "Disabled", // 因為有clang的lint，所以關掉
+    "C_Cpp.autocomplete": "Disabled", // 因為有clang的補全，所以關掉
+
+    "clang.cflags": [ // 控制c語言靜態檢測的參數
+        "--target=x86_64-w64-mingw",
+        "-std=c11",
+        "-Wall"
+    ],
+    "clang.cxxflags": [ // 控制c++靜態檢測時的參數
+        "--target=x86_64-w64-mingw",
+        "-std=c++17",
+        "-Wall"
+    ],
+    "clang.completion.enable": true,
+    "clang.executable": "C:\\msys64\\mingw64\\bin\\clang.exe",
+    "files.associations": {
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "cmath": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "exception": "cpp",
+        "fstream": "cpp",
+        "initializer_list": "cpp",
+        "iomanip": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "memory": "cpp",
+        "new": "cpp",
+        "numeric": "cpp",
+        "optional": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp",
+        "string_view": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "tuple": "cpp",
+        "typeinfo": "cpp",
+        "utility": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp",
+        "thread": "cpp",
+        "functional": "cpp",
+        "cstddef": "cpp",
+        "cinttypes": "cpp",
+        "atomic": "cpp",
+        "condition_variable": "cpp",
+        "cstdarg": "cpp",
+        "future": "cpp",
+        "mutex": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "iterator": "cpp"
+    } // 效果效果比cpptools要好
+}
