@@ -5,12 +5,13 @@
             "intelliSenseMode": "clang-x64",
             "includePath": [
                 "${workspaceRoot}",
-                "C:/msys64/mingw64/include",
-                "C:/msys64/mingw64/include/c++/8.2.1",
-                "C:/msys64/mingw64/include/c++/8.2.1/tr1",
-                "C:/msys64/mingw64/include/c++/8.2.1/tr2",
-                "C:/msys64/mingw64/include/c++/8.2.1/x86_64-w64-mingw32",
-                "C:/msys64/mingw64/x86_64-w64-mingw32/include"
+                "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
+                "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
+                "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
+                "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
+                "C:/LLVM/include",
+                "C:/LLVM/x86_64-w64-mingw32/include",
+                "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"
             ],
             "defines": [
                 "_DEBUG",
@@ -20,7 +21,13 @@
             ],
             "browse": {
                 "path": [
-                    "C:/msys64/mingw64/lib/*"
+                    "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
+                    "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
+                    "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
+                    "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
+                    "C:/LLVM/include",
+                    "C:/LLVM/x86_64-w64-mingw32/include",
+                    "C:/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
