@@ -1,15 +1,12 @@
 {
-    "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
-    "terminal.integrated.shellArgs.windows": ["-i"],
-    "terminal.integrated.env.windows": { "PATH": "/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/c/Windows/System32:/c/Windows:/c/Windows/System32/Wbem:/c/Windows/System32/WindowsPowershell/v1.0/"},
     "files.defaultLanguage": "cpp", // ctrl+N新建文件後預設的語言
     "editor.formatOnType": true, // 輸入時就進行格式化，默認觸發字元較少，分號可以觸發
     "editor.snippetSuggestions": "top", // snippets代碼優先顯示補全
 
     "code-runner.runInTerminal": true, // 設置成false會在“輸出”中輸出，無法輸入
     "code-runner.executorMap": {
-        "c": "cd $dir && C:\\msys64\\mingw64\\bin\\clang.exe $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c11 && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && C:\\msys64\\mingw64\\bin\\clang++.exe $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c++17 && $dir$fileNameWithoutExt"
+        "c": "cd $dir && C:\\LLVM\\bin\\clang.exe $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c11 && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && C:\\LLVM\\bin\\clang++.exe $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c++2a && $dir$fileNameWithoutExt"
     }, // 設置code runner的命令行
     "code-runner.saveFileBeforeRun": true, // run code前保存
     "code-runner.preserveFocus": true, // 若為false，run code後游標會聚焦到終端上。如果需要頻繁輸入數據可設為false
@@ -27,11 +24,11 @@
     ],
     "clang.cxxflags": [ // 控制c++靜態檢測時的參數
         "--target=x86_64-w64-mingw",
-        "-std=c++17",
+        "-std=c++2a",
         "-Wall"
     ],
     "clang.completion.enable": true,
-    "clang.executable": "C:\\msys64\\mingw64\\bin\\clang.exe",
+    "clang.executable": "C:\\LLVM\\bin\\clang.exe",
     "files.associations": {
         "array": "cpp",
         "*.tcc": "cpp",
