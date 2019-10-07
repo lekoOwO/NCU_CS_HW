@@ -14,10 +14,10 @@
                 "-pthread",
                 "-fcolor-diagnostics",
                 "--target=x86_64-w64-mingw64",
-                "-std=c++17",
+                "-std=c++2a",
                 "-Wl,--allow-multiple-definition"
             ],
-            "type": "shell",
+            "type": "process",
             "group": {
                 "kind": "build",
                 "isDefault": true
